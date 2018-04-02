@@ -33,8 +33,7 @@ class XiciSpider(scrapy.Spider):
         print('------------')
         pageNum = response.xpath('//a/text()').extract()[-2]
         print(pageNum)
-        print(response.meta)
-        for i in range(1, int(1) + 1):
+        for i in range(1, int(pageNum) + 1):
             pageUrl = self.ips + '/%d' % i
             yield scrapy.Request(url=pageUrl, callback=self.getips, dont_filter=True)
 
